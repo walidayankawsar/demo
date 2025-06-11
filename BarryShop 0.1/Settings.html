@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarryShop - Complete Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C4AB6;
+            --primary-light: #8D72E1;
+            --secondary: #B9E0FF;
+            --accent: #FF8B13;
+            --dark: #2D2727;
+            --light: #F5F5F5;
+            --success: #4BB543;
+            --warning: #FFCC00;
+            --danger: #FF3333;
+            --gray: #E0E0E0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtext {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-left: 5px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .search-bar input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            background-color: rgba(255,255,255,0.3);
+            width: 350px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .profile-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 250px;
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+        
+        .profile-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .profile-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+        }
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            border: 3px solid white;
+        }
+        
+        .profile-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .profile-email {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .profile-menu {
+            list-style: none;
+        }
+        
+        .profile-menu li {
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .profile-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .profile-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .profile-menu a:hover {
+            background-color: rgba(108, 74, 182, 0.1);
+            color: var(--primary);
+        }
+        
+        .profile-menu i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: calc(100vh - 76px);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: white;
+            padding: 2rem 1rem;
+            border-right: 1px solid var(--gray);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .sidebar-menu a:hover .menu-icon, .sidebar-menu a.active .menu-icon {
+            color: white;
+        }
+        
+        .menu-icon {
+            margin-right: 12px;
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .menu-text {
+            font-weight: 500;
+        }
+        
+        .menu-badge {
+            margin-left: auto;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+        
+        /* Dashboard Content */
+        .dashboard-content {
+            padding: 2rem 3rem;
+        }
+        
+        /* Settings Page Styles */
+        .settings-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .settings-sidebar {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            height: fit-content;
+        }
+        
+        .settings-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .settings-menu {
+            list-style: none;
+        }
+        
+        .settings-menu li {
+            margin-bottom: 8px;
+        }
+        
+        .settings-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .settings-menu a:hover, .settings-menu a.active {
+            background-color: rgba(108, 74, 182, 0.1);
+            color: var(--primary);
+        }
+        
+        .settings-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 2rem;
+        }
+        
+        .settings-section {
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .settings-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(108, 74, 182, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(108, 74, 182, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(108, 74, 182, 0.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .settings-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-barcode"></i>
+            </div>
+            <div>
+                <span class="logo-text">BarryShop</span>
+                <span class="logo-subtext">Barcode Inventory System</span>
+            </div>
+        </div>
+        
+        <div class="header-actions">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search products...">
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">BM</div>
+                <span>Barry M.</span>
+                <i class="fas fa-chevron-down"></i>
+                
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="profile-header">
+                        <div class="profile-avatar">BM</div>
+                        <h3 class="profile-name">Barry M.</h3>
+                        <p class="profile-email">barry@barryshop.com</p>
+                    </div>
+                    <ul class="profile-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-bell"></i> Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-tachometer-alt menu-icon"></i>
+                        <span class="menu-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-boxes menu-icon"></i>
+                        <span class="menu-text">Products</span>
+                        <span class="menu-badge">245</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-barcode menu-icon"></i>
+                        <span class="menu-text">Barcode Manager</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-tags menu-icon"></i>
+                        <span class="menu-text">Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-warehouse menu-icon"></i>
+                        <span class="menu-text">Inventory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-shopping-cart menu-icon"></i>
+                        <span class="menu-text">Orders</span>
+                        <span class="menu-badge">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-users menu-icon"></i>
+                        <span class="menu-text">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-chart-line menu-icon"></i>
+                        <span class="menu-text">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog menu-icon"></i>
+                        <span class="menu-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <!-- Dashboard Content -->
+        <main class="dashboard-content">
+            <!-- Settings Page Content -->
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <h3 class="settings-title">Settings</h3>
+                    <ul class="settings-menu">
+                        <li>
+                            <a href="#" class="settings-link active" data-section="general">
+                                <i class="fas fa-cog"></i> General Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="settings-link" data-section="account">
+                                <i class="fas fa-user-cog"></i> Account Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="settings-link" data-section="security">
+                                <i class="fas fa-shield-alt"></i> Security
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="settings-link" data-section="notifications">
+                                <i class="fas fa-bell"></i> Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="settings-link" data-section="barcode">
+                                <i class="fas fa-barcode"></i> Barcode Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="settings-link" data-section="integration">
+                                <i class="fas fa-plug"></i> Integrations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="settings-content">
+                    <!-- General Settings -->
+                    <div class="settings-section active" id="general-settings">
+                        <h2 class="section-title">General Settings</h2>
+                        
+                        <div class="form-group">
+                            <label for="shopName" class="form-label">Shop Name</label>
+                            <input type="text" id="shopName" class="form-control" value="BarryShop">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shopAddress" class="form-label">Shop Address</label>
+                            <textarea id="shopAddress" class="form-control" rows="3">123 Barcode Street, Dhaka</textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="currency" class="form-label">Currency</label>
+                                <select id="currency" class="form-control">
+                                    <option value="BDT" selected>Bangladeshi Taka (৳)</option>
+                                    <option value="USD">US Dollar ($)</option>
+                                    <option value="EUR">Euro (€)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timezone" class="form-label">Timezone</label>
+                                <select id="timezone" class="form-control">
+                                    <option value="Asia/Dhaka" selected>Asia/Dhaka</option>
+                                    <option value="UTC">UTC</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="button" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Account Settings -->
+                    <div class="settings-section" id="account-settings">
+                        <h2 class="section-title">Account Settings</h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Profile Picture</label>
+                            <div style="display: flex; align-items: center; gap: 20px;">
+                                <div class="profile-avatar" style="margin: 0;">BM</div>
+                                <div>
+                                    <button type="button" class="btn btn-outline">
+                                        <i class="fas fa-upload"></i> Upload New
+                                    </button>
+                                    <button type="button" class="btn btn-outline">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-control" value="Barry">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" value="M.">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" value="barry@barryshop.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" value="+8801XXXXXXXXX">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="button" class="btn btn-primary">Update Account</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Settings -->
+                    <div class="settings-section" id="security-settings">
+                        <h2 class="section-title">Security Settings</h2>
+                        
+                        <div class="form-group">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <input type="password" id="currentPassword" class="form-control">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" id="newPassword" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Two-Factor Authentication</label>
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <strong>2FA is currently disabled</strong>
+                                        <p style="font-size: 0.9rem; color: #666;">Add an extra layer of security to your account</p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline">Enable 2FA</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="button" class="btn btn-primary">Update Security</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Barcode Settings -->
+                    <div class="settings-section" id="barcode-settings">
+                        <h2 class="section-title">Barcode Settings</h2>
+                        
+                        <div class="form-group">
+                            <label for="barcodeType" class="form-label">Barcode Type</label>
+                            <select id="barcodeType" class="form-control">
+                                <option value="CODE128" selected>CODE 128</option>
+                                <option value="EAN13">EAN-13</option>
+                                <option value="UPC">UPC</option>
+                                <option value="QR">QR Code</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="barcodeWidth" class="form-label">Width (mm)</label>
+                                <input type="number" id="barcodeWidth" class="form-control" value="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="barcodeHeight" class="form-label">Height (mm)</label>
+                                <input type="number" id="barcodeHeight" class="form-control" value="25">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Barcode Preview</label>
+                            <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+                                <div style="font-family: 'Libre Barcode 128', cursive; font-size: 2.5rem; margin-bottom: 1rem;">
+                                    890123456789
+                                </div>
+                                <p style="font-size: 0.9rem; color: #666;">Sample barcode preview</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Barcode Printing</label>
+                            <div style="display: flex; gap: 10px;">
+                                <button type="button" class="btn btn-outline">
+                                    <i class="fas fa-print"></i> Print Test
+                                </button>
+                                <button type="button" class="btn btn-outline">
+                                    <i class="fas fa-cog"></i> Printer Settings
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline">Cancel</button>
+                            <button type="button" class="btn btn-primary">Save Barcode Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Profile Dropdown Toggle
+        const userProfile = document.getElementById('userProfile');
+        const profileDropdown = document.getElementById('profileDropdown');
+        
+        userProfile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            profileDropdown.classList.remove('show');
+        });
+        
+        // Settings Navigation
+        const settingsLinks = document.querySelectorAll('.settings-link');
+        const settingsSections = document.querySelectorAll('.settings-section');
+        
+        settingsLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                settingsLinks.forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all sections
+                settingsSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(`${sectionId}-settings`).classList.add('active');
+            });
+        });
+        
+        // Simulate loading for demo purposes
+        document.getElementById('general-settings').classList.add('active');
+    </script>
+</body>
+</html>

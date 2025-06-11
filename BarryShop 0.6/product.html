@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarryShop - Barcode Product Management</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BarryShop</div>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#" class="active">Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Inventory</a></li>
+                    <li><a href="#">Barcode Generator</a></li>
+                    <li><a href="#">Sales</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <h1 class="page-title">Product Management</h1>
+                
+                <div class="barcode-section">
+                    <h2>Barcode Scanner</h2>
+                    <div class="barcode-scanner">
+                        <input type="text" id="barcode-input" placeholder="Scan barcode or enter manually">
+                        <button class="btn" id="scan-btn">Scan</button>
+                    </div>
+                    <button class="btn" id="add-product-btn">Add New Product</button>
+                </div>
+                
+                <h2>Product List</h2>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Barcode</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>890123456789</td>
+                            <td>Premium Headphones</td>
+                            <td>Electronics</td>
+                            <td>$99.99</td>
+                            <td>45</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>890987654321</td>
+                            <td>Wireless Mouse</td>
+                            <td>Electronics</td>
+                            <td>$25.50</td>
+                            <td>120</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>890567891234</td>
+                            <td>Notebook</td>
+                            <td>Stationery</td>
+                            <td>$3.99</td>
+                            <td>200</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="add-product-form" id="product-form" style="display: none;">
+                    <h2>Add New Product</h2>
+                    <form id="new-product-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="barcode">Barcode</label>
+                                <input type="text" id="barcode" name="barcode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-name">Product Name</label>
+                                <input type="text" id="product-name" name="product-name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="stationery">Stationery</option>
+                                    <option value="groceries">Groceries</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price ($)</label>
+                                <input type="number" id="price" name="price" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stock">Stock Quantity</label>
+                                <input type="number" id="stock" name="stock" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Product Image</label>
+                                <input type="file" id="image" name="image">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Save Product</button>
+                        <button type="button" class="btn" id="cancel-btn" style="background-color: #6c757d; margin-left: 0.5rem;">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="product.js"></script>
+</body>
+</html>

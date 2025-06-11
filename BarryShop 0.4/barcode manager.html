@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarryShop - Barcode Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C4AB6;
+            --primary-light: #8D72E1;
+            --accent: #FF8B13;
+            --light: #F5F5F5;
+            --gray: #E0E0E0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .barcode-scanner {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .scanner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: var(--primary);
+        }
+        
+        .scanner-input {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .scanner-input input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-outline {
+            background-color: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .barcode-preview {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .barcode-text {
+            font-family: 'Libre Barcode 128', cursive;
+            font-size: 48px;
+            letter-spacing: 2px;
+        }
+        
+        .barcode-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .barcode-history {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .history-table {
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .history-table th {
+            background-color: #f5f5f5;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .history-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Barcode Manager</h1>
+            <button class="btn btn-primary">
+                <i class="fas fa-barcode"></i> Generate Bulk
+            </button>
+        </div>
+        
+        <div class="barcode-scanner">
+            <div class="scanner-header">
+                <h2 class="section-title">Barcode Scanner</h2>
+                <button class="btn btn-outline">
+                    <i class="fas fa-history"></i> Scan History
+                </button>
+            </div>
+            
+            <div class="scanner-input">
+                <input type="text" placeholder="Scan barcode or enter manually">
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            
+            <div class="barcode-preview">
+                <p>Barcode Preview</p>
+                <div class="barcode-text">890123456789</div>
+                <div class="barcode-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="barcode-history">
+            <h2 class="section-title">Recent Scans</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Barcode</th>
+                        <th>Product</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>890123456789</td>
+                        <td>Wireless Headphones</td>
+                        <td>10:45 AM</td>
+                        <td>
+                            <button style="background: none; border: none; color: var(--primary); cursor: pointer;">
+                                <i class="fas fa-redo"></i> Rescan
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- More rows... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

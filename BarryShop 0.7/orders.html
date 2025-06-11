@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarryShop - Order Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Order Management</h1>
+            <div>
+                <button style="padding: 10px 20px; background-color: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    <i class="fas fa-plus"></i> Create Order
+                </button>
+            </div>
+        </div>
+        
+        <div class="order-filters">
+            <button class="filter-btn active">All Orders</button>
+            <button class="filter-btn">Pending</button>
+            <button class="filter-btn">Completed</button>
+            <button class="filter-btn">Cancelled</button>
+            <button class="filter-btn">Today</button>
+        </div>
+        
+        <div class="order-card">
+            <div class="order-header">
+                <div>
+                    <span class="order-id">ORDER #1001</span>
+                    <span class="order-date"> - 15 Oct 2023, 10:30 AM</span>
+                </div>
+                <span class="order-status status-pending">Pending</span>
+            </div>
+            
+            <div class="order-details">
+                <div class="order-customer">
+                    <div class="customer-name">John Doe</div>
+                    <div class="customer-contact">john@example.com | +8801XXXXXXXXX</div>
+                    <div>Cash on Delivery</div>
+                </div>
+                
+                <div class="order-items">
+                    <ul class="item-list">
+                        <li>
+                            <span>Wireless Headphones x 1</span>
+                            <span>$59.99</span>
+                        </li>
+                        <li>
+                            <span>Bluetooth Speaker x 2</span>
+                            <span>$119.98</span>
+                        </li>
+                    </ul>
+                    <div class="order-total">
+                        Total: $179.97
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-actions">
+                <button class="action-btn view-btn">
+                    <i class="fas fa-eye"></i> View Details
+                </button>
+                <button class="action-btn process-btn">
+                    <i class="fas fa-check"></i> Process Order
+                </button>
+            </div>
+        </div>
+        
+        <!-- More order cards... -->
+    </div>
+</body>
+</html>
