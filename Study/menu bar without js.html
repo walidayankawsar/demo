@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Only 3-Dot Menu Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Three-dot menu button styles */
+        .menu-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .menu-button {
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px;
+        }
+        
+        .menu-button:hover {
+            background-color: #f0f0f0;
+            border-radius: 50%;
+        }
+        
+        .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+        
+        /* Hide the checkbox */
+        .menu-toggle {
+            display: none;
+        }
+        
+        /* Menu dropdown styles - hidden by default */
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 150px;
+            z-index: 1;
+        }
+        
+        /* Show menu when checkbox is checked */
+        .menu-toggle:checked ~ .menu-dropdown {
+            display: block;
+        }
+        
+        .menu-dropdown a {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .menu-dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Explanation section */
+        .explanation {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 500px;
+        }
+        
+        .explanation h3 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .explanation code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CSS-Only 3-Dot Menu Button</h2>
+        
+        <!-- Three-dot menu button using CSS only -->
+        <div class="menu-container">
+            <!-- Hidden checkbox to control menu visibility -->
+            <input type="checkbox" id="menuToggle" class="menu-toggle">
+            
+            <!-- Label acts as the clickable button -->
+            <label for="menuToggle" class="menu-button">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </label>
+            
+            <!-- Menu dropdown content -->
+            <div class="menu-dropdown">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+                <a href="#">Option 4</a>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h3>How This Works Without JavaScript:</h3>
+            <p>This example uses a CSS-only approach to create a functional 3-dot menu.</p>
+            
+            <h4>HTML Structure:</h4>
+            <ul>
+                <li>A hidden checkbox input controls the menu visibility</li>
+                <li>A label styled as the 3-dot button toggles the checkbox</li>
+                <li>The dropdown menu is shown/hidden based on checkbox state</li>
+            </ul>
+            
+            <h4>CSS Techniques:</h4>
+            <ul>
+                <li>The checkbox is hidden with <code>display: none</code></li>
+                <li>The label is styled to look like a 3-dot button</li>
+                <li>The <code>:checked</code> pseudo-class shows/hides the menu:
+                    <pre><code>.menu-toggle:checked ~ .menu-dropdown {
+    display: block;
+}</code></pre>
+                </li>
+                <li>The <code>~</code> (general sibling combinator) selects the menu when checkbox is checked</li>
+            </ul>
+            
+            <h4>Limitations:</h4>
+            <ul>
+                <li>Menu won't close when clicking outside (requires JavaScript)</li>
+                <li>Less flexible than JavaScript solutions</li>
+                <li>Still accessible as it uses standard form controls</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

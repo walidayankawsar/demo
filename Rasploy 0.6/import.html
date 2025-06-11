@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Git Repository | PiDjango Hosting</title>
+    <link rel="stylesheet" href="import.css">
+</head>
+<body>
+    <div class="import-container">
+        <header class="import-header">
+            <h1><i class="fab fa-github"></i> Import Git Repository</h1>
+            <p>Deploy your Django project directly from GitHub, GitLab, or Bitbucket</p>
+        </header>
+
+        <div class="import-steps">
+            <div class="step active" id="step1">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Connect Your Account</h3>
+                    <div class="auth-providers">
+                        <button class="provider-btn github">
+                            <i class="fab fa-github"></i> Connect GitHub
+                        </button>
+                        <button class="provider-btn gitlab">
+                            <i class="fab fa-gitlab"></i> Connect GitLab
+                        </button>
+                        <button class="provider-btn bitbucket">
+                            <i class="fab fa-bitbucket"></i> Connect Bitbucket
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Select Repository</h3>
+                    <div class="repo-selector">
+                        <input type="text" id="repo-search" placeholder="Search repositories...">
+                        <div class="repo-list" id="repo-list">
+                            <!-- Dynamically populated -->
+                            <div class="repo-placeholder">
+                                <i class="fas fa-spinner fa-spin"></i> Loading your repositories...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="step3">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Configure Deployment</h3>
+                    <form id="deploy-config">
+                        <div class="form-group">
+                            <label for="project-name">Project Name</label>
+                            <input type="text" id="project-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="branch-select">Branch</label>
+                            <select id="branch-select" required>
+                                <option value="">Loading branches...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="python-version">Python Version</label>
+                            <select id="python-version">
+                                <option value="3.9">Python 3.9</option>
+                                <option value="3.10" selected>Python 3.10</option>
+                                <option value="3.11">Python 3.11</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="auto-deploy">
+                            <label for="auto-deploy">Auto-deploy on push</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="import-actions">
+            <button class="secondary-button" id="prev-btn" disabled>
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button class="cta-button" id="next-btn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="cta-button" id="deploy-btn" style="display: none;">
+                <i class="fas fa-rocket"></i> Deploy Project
+            </button>
+        </div>
+
+        <div class="import-help">
+            <h4><i class="fas fa-question-circle"></i> Need help?</h4>
+            <p>Check our <a href="#">documentation</a> or <a href="#">contact support</a></p>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Your JavaScript -->
+    <script src="import.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
