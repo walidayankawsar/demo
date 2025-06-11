@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Uniq</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+        <!-- Same header content as index.html -->
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shop</h1>
+            <p>Browse our collection</p>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="shop-content">
+        <div class="container">
+            <div class="shop-toolbar">
+                <div class="product-count">
+                    <p>Showing 1-12 of 36 products</p>
+                </div>
+                <div class="product-sorting">
+                    <select>
+                        <option value="default">Default Sorting</option>
+                        <option value="price-low">Sort by price: low to high</option>
+                        <option value="price-high">Sort by price: high to low</option>
+                        <option value="popularity">Sort by popularity</option>
+                        <option value="rating">Sort by average rating</option>
+                        <option value="newest">Sort by newness</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <!-- Repeat this product card for each product -->
+                <div class="product-card">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-thumb">
+                        <a href="product-details.html"><img src="images/product3.jpg" alt="Product Name"></a>
+                        <div class="product-quick-view">
+                            <a href="product-details.html">Quick View</a>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h4><a href="product-details.html">Cotton T-Shirt</a></h4>
+                        <div class="product-price">
+                            <span class="price-now">$29.00</span>
+                            <span class="price-before">$39.00</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="add-to-cart">Add to Cart</a>
+                            <a href="#" class="add-to-wishlist"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End product card -->
+                
+                <!-- Add more products here -->
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="prev"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#" class="next"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name - Uniq</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+        <!-- Same header content as index.html -->
+    </header>
+
+    <!-- Product Details -->
+    <section class="product-details">
+        <div class="container">
+            <div class="product-details-grid">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="images/product-large.jpg" alt="Product Name" id="mainImage">
+                    </div>
+                    <div class="thumbnail-images">
+                        <img src="images/product-thumb1.jpg" alt="Thumbnail 1">
+                        <img src="images/product-thumb2.jpg" alt="Thumbnail 2">
+                        <img src="images/product-thumb3.jpg" alt="Thumbnail 3">
+                        <img src="images/product-thumb4.jpg" alt="Thumbnail 4">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1>Minimalist Watch</h1>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="#reviews" class="review-link">(24 reviews)</a>
+                        </div>
+                        <div class="product-sku">SKU: UNQ-12345</div>
+                        <div class="product-availability">In Stock</div>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">$45.00</span>
+                        <span class="old-price">$60.00</span>
+                    </div>
+                    <div class="product-description">
+                        <p>This minimalist watch features a sleek design with a stainless steel case and genuine leather strap. Perfect for both casual and formal occasions.</p>
+                    </div>
+                    <div class="product-options">
+                        <div class="option-row">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                <span class="color-option black active" data-color="black"></span>
+                                <span class="color-option silver" data-color="silver"></span>
+                                <span class="color-option gold" data-color="gold"></span>
+                            </div>
+                        </div>
+                        <div class="option-row">
+                            <label for="size">Size:</label>
+                            <select id="size">
+                                <option value="">Select Size</option>
+                                <option value="s">Small</option>
+                                <option value="m">Medium</option>
+                                <option value="l">Large</option>
+                            </select>
+                        </div>
+                        <div class="option-row quantity-row">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-minus">-</button>
+                                <input type="text" value="1" class="quantity-input">
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-meta-bottom">
+                        <div class="meta-item">
+                            <span>Category:</span> <a href="#">Watches</a>, <a href="#">Accessories</a>
+                        </div>
+                        <div class="meta-item">
+                            <span>Share:</span>
+                            <div class="social-share">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <ul class="tabs-nav">
+                    <li class="active"><a href="#description">Description</a></li>
+                    <li><a href="#additional-info">Additional Information</a></li>
+                    <li><a href="#reviews">Reviews (24)</a></li>
+                </ul>
+                <div class="tabs-content">
+                    <div id="description" class="tab-pane active">
+                        <h3>Product Description</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                        <ul>
+                            <li>Stainless steel case</li>
+                            <li>Genuine leather strap</li>
+                            <li>Water resistant up to 50m</li>
+                            <li>Japanese quartz movement</li>
+                        </ul>
+                    </div>
+                    <div id="additional-info" class="tab-pane">
+                        <h3>Additional Information</h3>
+                        <table>
+                            <tr>
+                                <th>Weight</th>
+                                <td>0.5 kg</td>
+                            </tr>
+                            <tr>
+                                <th>Dimensions</th>
+                                <td>40 × 40 × 10 cm</td>
+                            </tr>
+                            <tr>
+                                <th>Material</th>
+                                <td>Stainless Steel, Leather</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="reviews" class="tab-pane">
+                        <h3>Customer Reviews</h3>
+                        <div class="review-list">
+                            <!-- Review 1 -->
+                            <div class="review-item">
+                                <div class="review-meta">
+                                    <div class="review-author">John Doe</div>
+                                    <div class="review-date">June 12, 2023</div>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Great product!</h4>
+                                    <p>I love this watch. It's exactly as described and looks even better in person. The quality is excellent and it's very comfortable to wear.</p>
+                                </div>
+                            </div>
+                            <!-- Add more reviews as needed -->
+                        </div>
+                        <div class="review-form">
+                            <h4>Add a review</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label>Your Rating</label>
+                                    <div class="rating-stars">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                        <input type="hidden" name="rating" id="rating-value">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="review-text">Your Review</label>
+                                    <textarea id="review-text" rows="5"></textarea>
+                                </div>
+                                <button type="submit" class="submit-review-btn">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2 class="section-title">You May Also Like</h2>
+                <div class="product-grid">
+                    <!-- Add related products here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+</body>
+</html>

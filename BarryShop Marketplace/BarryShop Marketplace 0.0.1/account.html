@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Uniq</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+        <!-- Same header content as index.html -->
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Account</h1>
+            <p>Manage your account details</p>
+        </div>
+    </section>
+
+    <!-- Account Content -->
+    <section class="account-content">
+        <div class="container">
+            <div class="account-grid">
+                <div class="account-nav">
+                    <ul>
+                        <li class="active"><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#orders">Orders</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="#addresses">Addresses</a></li>
+                        <li><a href="#account-details">Account Details</a></li>
+                        <li><a href="#wishlist">Wishlist</a></li>
+                        <li><a href="index.html">Logout</a></li>
+                    </ul>
+                </div>
+
+                <div class="account-main">
+                    <!-- Dashboard Tab -->
+                    <div id="dashboard" class="account-tab active">
+                        <h3>Dashboard</h3>
+                        <p>Hello <strong>John Doe</strong> (not <strong>John Doe</strong>? <a href="index.html">Log out</a>)</p>
+                        <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+                    </div>
+
+                    <!-- Orders Tab -->
+                    <div id="orders" class="account-tab">
+                        <h3>Orders</h3>
+                        <div class="orders-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1234</td>
+                                        <td>June 15, 2023</td>
+                                        <td>Completed</td>
+                                        <td>$134.00 for 2 items</td>
+                                        <td><a href="#" class="view-order">View</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1233</td>
+                                        <td>May 28, 2023</td>
+                                        <td>Completed</td>
+                                        <td>$89.00 for 1 item</td>
+                                        <td><a href="#" class="view-order">View</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Downloads Tab -->
+                    <div id="downloads" class="account-tab">
+                        <h3>Downloads</h3>
+                        <p>No downloads available yet.</p>
+                    </div>
+
+                    <!-- Addresses Tab -->
+                    <div id="addresses" class="account-tab">
+                        <h3>Addresses</h3>
+                        <p>The following addresses will be used on the checkout page by default.</p>
+                        
+                        <div class="address-grid">
+                            <div class="address-col">
+                                <h4>Billing Address</h4>
+                                <address>
+                                    John Doe<br>
+                                    123 Main Street<br>
+                                    Apt 4B<br>
+                                    New York, NY 10001<br>
+                                    United States
+                                </address>
+                                <a href="#" class="edit-address">Edit</a>
+                            </div>
+                            <div class="address-col">
+                                <h4>Shipping Address</h4>
+                                <address>
+                                    John Doe<br>
+                                    123 Main Street<br>
+                                    Apt 4B<br>
+                                    New York, NY 10001<br>
+                                    United States
+                                </address>
+                                <a href="#" class="edit-address">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Details Tab -->
+                    <div id="account-details" class="account-tab">
+                        <h3>Account Details</h3>
+                        <form class="account-form">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" value="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" value="Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="display-name">Display Name *</label>
+                                <input type="text" id="display-name" value="John Doe" required>
+                                <p class="form-note">This will be how your name will be displayed in the account section and in reviews.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="account-email">Email Address *</label>
+                                <input type="email" id="account-email" value="john@example.com" required>
+                            </div>
+                            <h4>Password Change</h4>
+                            <div class="form-group">
+                                <label for="current-password">Current Password (leave blank to leave unchanged)</label>
+                                <input type="password" id="current-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">New Password (leave blank to leave unchanged)</label>
+                                <input type="password" id="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password">
+                            </div>
+                            <button type="submit" class="save-changes-btn">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Wishlist Tab -->
+                    <div id="wishlist" class="account-tab">
+                        <h3>Wishlist</h3>
+                        <div class="wishlist-grid">
+                            <!-- Wishlist Item 1 -->
+                            <div class="wishlist-item">
+                                <div class="product-img">
+                                    <a href="product-details.html"><img src="images/product1.jpg" alt="Product Name"></a>
+                                </div>
+                                <div class="product-details">
+                                    <h4><a href="product-details.html">Minimalist Watch</a></h4>
+                                    <div class="product-price">$45.00</div>
+                                </div>
+                                <div class="product-actions">
+                                    <a href="#" class="add-to-cart">Add to Cart</a>
+                                    <a href="#" class="remove-item"><i class="fas fa-times"></i></a>
+                                </div>
+                            </div>
+                            
+                            <!-- Wishlist Item 2 -->
+                            <div class="wishlist-item">
+                                <div class="product-img">
+                                    <a href="product-details.html"><img src="images/product3.jpg" alt="Product Name"></a>
+                                </div>
+                                <div class="product-details">
+                                    <h4><a href="product-details.html">Cotton T-Shirt</a></h4>
+                                    <div class="product-price">$29.00</div>
+                                </div>
+                                <div class="product-actions">
+                                    <a href="#" class="add-to-cart">Add to Cart</a>
+                                    <a href="#" class="remove-item"><i class="fas fa-times"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+</body>
+</html>
